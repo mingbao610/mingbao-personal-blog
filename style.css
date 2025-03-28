@@ -1,0 +1,435 @@
+/* 全局样式 */
+:root {
+    --primary-color: #FF80AB;
+    --secondary-color: #FFF4BD;
+    --text-color: #4A4A4A;
+    --bg-color: #fff;
+    --accent-color: #80DEEA;
+    --tertiary-color: #FFE5D9;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
+
+body {
+    font-family: 'Quicksand', sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+}
+
+/* 导航栏 */
+header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+nav {
+    padding: 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.nav-links {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: var(--primary-color);
+}
+
+/* 主要内容 */
+main {
+    width: 100%;
+    overflow-x: hidden;
+}
+
+section {
+    padding: 4rem 2rem;
+    width: 100%;
+    margin: 0 auto;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 2.5rem;
+    color: var(--primary-color);
+}
+
+/* 英雄区域 */
+#hero {
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--tertiary-color) 0%, var(--secondary-color) 100%);
+    padding: 2rem;
+    position: relative;
+}
+
+#hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 30% 50%, rgba(255,255,255,0.1) 0%, transparent 60%);
+    pointer-events: none;
+}
+
+.hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 1400px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+    text-align: center;
+}
+
+.profile-image {
+    width: 320px;
+    height: 320px;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+    position: relative;
+    margin-bottom: 3rem;
+}
+
+.profile-image::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 30px;
+}
+
+.profile-image:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+.profile-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.highlight {
+    color: var(--primary-color);
+}
+
+.hero-text {
+    text-align: center;
+    padding: 2rem 4rem;
+    background: rgba(255,255,255,0.85);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    border: 1px solid rgba(255,255,255,0.3);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.05);
+    max-width: 700px;
+    position: relative;
+    margin: 0 auto;
+}
+
+.hero-text::before,
+.hero-text::after {
+    content: '';
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background: radial-gradient(circle, var(--accent-color) 0%, transparent 70%);
+    opacity: 0.1;
+    z-index: -1;
+}
+
+.hero-text::before {
+    top: -50px;
+    left: -50px;
+}
+
+.hero-text::after {
+    bottom: -50px;
+    right: -50px;
+}
+
+.hero-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+.hero-header h1 {
+    font-size: 4.5rem;
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 0;
+    line-height: 1.1;
+    font-family: 'Fredoka One', sans-serif;
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.tagline {
+    font-size: 1.6rem;
+    color: var(--accent-color);
+    line-height: 1;
+    font-family: 'Fredoka One', sans-serif;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.about-preview {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--text-color);
+    margin-top: 2rem;
+    font-weight: 300;
+    letter-spacing: 0.02em;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+    .profile-image {
+        width: 260px;
+        height: 260px;
+        margin-bottom: 2rem;
+    }
+
+    .hero-header h1 {
+        font-size: 3rem;
+    }
+
+    .tagline {
+        font-size: 1.2rem;
+        letter-spacing: 0.15em;
+    }
+}
+
+/* 关于部分 */
+/* 创作过程部分 */
+.process-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.video-container {
+    width: 100%;
+    max-width: 800px;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.video-container video {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: contain;
+}
+
+.process-text {
+    text-align: center;
+    max-width: 600px;
+}
+
+.process-text h3 {
+    color: var(--primary-color);
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    font-family: 'Fredoka', sans-serif;
+}
+
+.process-quote {
+    font-style: italic;
+    color: var(--accent-color);
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.process-description {
+    color: var(--text-color);
+    font-size: 1rem;
+    line-height: 1.8;
+    opacity: 0.9;
+}
+
+.about-content {
+    width: 100%;
+    max-width: 800px;
+    margin: 3rem auto;
+    text-align: center;
+    padding: 0 2rem;
+}
+
+.skills {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.skill {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.skill i {
+    font-size: 2rem;
+    color: var(--primary-color);
+}
+
+/* 作品集 */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 3rem;
+    padding: 2rem;
+    width: 100%;
+    max-width: 1800px;
+    margin: 0 auto;
+}
+
+.work-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+    aspect-ratio: 3/4;
+}
+
+.work-item:hover {
+    transform: translateY(-5px);
+}
+
+.work-item:hover img {
+    transform: scale(1.03);
+}
+
+.work-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.work-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.95);
+    transform: translateY(100%);
+    transition: transform 0.3s;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.work-info h3 {
+    color: var(--primary-color);
+    font-size: 1.4rem;
+    margin-bottom: 0.2rem;
+}
+
+.work-info p {
+    color: var(--text-color);
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+.work-info .inspiration {
+    font-style: italic;
+    color: var(--accent-color);
+    font-size: 0.85rem;
+    margin-top: 0.3rem;
+}
+
+.work-item:hover .work-info {
+    transform: translateY(0);
+}
+
+/* 联系方式 */
+.contact-info {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.contact-info a {
+    color: var(--text-color);
+    font-size: 2rem;
+    transition: color 0.3s;
+}
+
+.contact-info a:hover {
+    color: var(--primary-color);
+}
+
+/* 页脚 */
+footer {
+    text-align: center;
+    padding: 2rem;
+    background-color: var(--accent-color);
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .nav-links {
+        gap: 1rem;
+    }
+
+    .skills {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .gallery {
+        grid-template-columns: 1fr;
+    }
+}
